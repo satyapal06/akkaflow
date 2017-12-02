@@ -3,7 +3,9 @@ package org.springframework.samples.travel.search;
 import akka.actor.{Actor, ActorRef, Props}
 import akka.actor.ReceiveTimeout
 import akka.util.Timeout
-import akka.util.duration._
+import scala.concurrent.duration._
+import org.springframework.samples.travel.core.search.HotelQuery
+import org.springframework.samples.travel.core.search.HotelResponse
 
 /** This message is passed from the query interceptor -> query cache. */
 case object QueryOk

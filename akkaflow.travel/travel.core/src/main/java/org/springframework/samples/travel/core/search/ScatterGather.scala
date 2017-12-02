@@ -1,7 +1,8 @@
-package org.springframework.samples.travel.search;
+package org.springframework.samples.travel.core.search;
 
 import akka.actor.{Actor, ActorRef, Props, ReceiveTimeout}
-import akka.util.duration._
+import scala.concurrent.duration._
+import org.springframework.samples.travel.core.Hotel
 
 /** The "head" actor for splitting data by country.
  * 

@@ -1,4 +1,4 @@
-package org.springframework.samples.travel.search;
+package org.springframework.samples.travel.core.search;
 
 import akka.actor.{Actor, ActorRef, Props}
 

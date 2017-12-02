@@ -1,4 +1,4 @@
-package org.springframework.samples.travel;
+package org.springframework.samples.travel.core;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

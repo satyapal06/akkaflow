@@ -1,4 +1,4 @@
-package org.springframework.samples.travel;
+package org.springframework.samples.travel.core;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

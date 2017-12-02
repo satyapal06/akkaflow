@@ -1,6 +1,8 @@
-package org.springframework.samples.travel.search;
+package org.springframework.samples.travel.core.search;
 
 import akka.actor.Actor
+import org.springframework.samples.travel.core.Hotel
+import org.springframework.samples.travel.core.SearchCriteria
 
 /** Note:  This is the *same* as a topic node in the scatter gather algorithm. */
 class SingleActorSearch(hotels: Seq[Hotel]) extends Actor {

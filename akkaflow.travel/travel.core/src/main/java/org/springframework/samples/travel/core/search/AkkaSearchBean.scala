@@ -1,24 +1,28 @@
-package org.springframework.samples.travel.search;
+package org.springframework.samples.travel.core.search;
 
 import org.springframework.stereotype.Service
 import javax.inject.{Inject,Singleton}
 import javax.persistence.{EntityManager, PersistenceContext}
-import akka.actor._
+import akka.actor.{ActorSystem, Props, ActorRef}
 import scala.collection.JavaConverters._
 import javax.annotation.PostConstruct
 import akka.pattern.ask
-import akka.dispatch.Await
 import javax.annotation.PreDestroy
 import akka.routing.RoundRobinRouter
 import collection.JavaConverters._
 import akka.util.Timeout
-import akka.util.duration._
+import org.springframework.samples.travel.core.SearchCriteria
+import org.springframework.samples.travel.core.Hotel
+import org.springframework.samples.travel.core.SearchService
+import scala.concurrent.Await
+import scala.concurrent.duration._
+import org.springframework.samples.travel.search._
 
 @Service
 @Singleton
 class AkkaSearchBean extends SearchService  {
   /** The entity manager for this bean. */
-  @(PersistenceContext @annotation.target.setter)
+  @(PersistenceContext)
   var em: EntityManager = null
   
   /** The ActorSystem that runs under this bean. */
@@ -57,7 +61,7 @@ class AkkaSearchBean extends SearchService  {
   override def findHotels(criteria: SearchCriteria): java.util.List[Hotel] = {
     implicit val timeout = Timeout(5 seconds)
     val response = (searchActor ? HotelQuery(criteria))
-    Await.result(response, akka.util.Duration.Inf) match {
+    Await.result(response, scala.concurrent.duration.Duration.Inf) match {
       case response: HotelResponse => response.hotels.asJava
       case ex: Exception => throw ex
     }
