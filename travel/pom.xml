@@ -7,11 +7,11 @@
 	<name>travel</name>
 	<packaging>pom</packaging>
 	<modules>
-		<module>travel.dao</module>
-		<module>travel.core</module>
-		<module>travel.common</module>
-		<module>travel.modal</module>
-		<module>travel.web</module>
+		<module>../travel.dao</module>
+		<module>../travel.core</module>
+		<module>../travel.common</module>
+		<module>../travel.modal</module>
+		<module>../travel.web</module>
 	</modules>
 
 	<parent>
